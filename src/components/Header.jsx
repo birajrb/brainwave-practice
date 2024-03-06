@@ -46,19 +46,20 @@ const Header = () => {
           <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
             {navigation.map((item) => (
               <div
-                className={`px-6 py-6 md:py-8 lg:-mr-0.25  xl:px-12`}
+                className={`px-6 py-6 md:py-8 lg:-mr-0.25  xl:px-12   ${
+                  item.onlyMobile ? "lg:hidden" : ""
+                }`}
                 key={item.id}
               >
                 <a
                   href={item.url}
                   onClick={handleClick}
-                  className={`block relative font-code tex-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
-                    item.onlyMobile ? "lg:hidden" : ""
-                  } lg:text-xs lg:font-semibold ${
-                    item.url === pathname.hash
-                      ? "z-2 lg:text-n-1"
-                      : "lg:text-n-1/50"
-                  } lg:leading-5 lg:hover:text-n-1`}
+                  className={`block relative font-code tex-2xl uppercase text-n-1 transition-colors hover:text-color-1 
+                 lg:text-xs lg:font-semibold ${
+                   item.url === pathname.hash
+                     ? "z-2 lg:text-n-1"
+                     : "lg:text-n-1/50"
+                 } lg:leading-5 lg:hover:text-n-1`}
                 >
                   {item.title}
                 </a>
